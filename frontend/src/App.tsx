@@ -1,35 +1,51 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import * as React from "react";
+import {
+  Card,
+  Grid,
+  Title,
+  Text,
+  Tab,
+  TabList,
+  TabGroup,
+  TabPanel,
+  TabPanels,
+  Button,
+} from "@tremor/react";
+import { MainForm } from "./main-form";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export function App() {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <main className="px-12 py-12">
+      <h1 className="text-xl">
+        <span className="uppercase text-rose font-semibold text-rose-500">
+          Rentcaraï
+        </span>
+        &nbsp;Estimator
+      </h1>
+      <Text className="text-lg">
+        Estimez le prix du marché avant de vendre prochain car
+      </Text>
 
-export default App
+      <TabGroup className="mt-6">
+        <TabList>
+          <Tab>Estimateur</Tab>
+          <Tab>Historique</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>
+            <div className="mt-6">
+              <MainForm />
+            </div>
+          </TabPanel>
+          <TabPanel>
+            <div className="mt-6">
+              <Card>
+                <div className="h-96" />
+              </Card>
+            </div>
+          </TabPanel>
+        </TabPanels>
+      </TabGroup>
+    </main>
+  );
+}
