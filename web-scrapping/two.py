@@ -21,7 +21,7 @@ def getAllLinksFromPages():
     finalLinks = []
     
     for i in range(50):
-        url = "https://www.lacentrale.fr/listing?makesModelsCommercialNames=&options=&page=" + str(i+1)
+        url = "https://www.lacentrale.fr/listing?makesModelsCommercialNames=&options=&page=" + str(i+50)
         driver.get(url)
         driver.implicitly_wait(10)
         wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, '.Vehiculecard_Vehiculecard_vehiculeCard')));
