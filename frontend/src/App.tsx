@@ -1,17 +1,15 @@
 import * as React from "react";
 import {
   Card,
-  Grid,
-  Title,
   Text,
   Tab,
   TabList,
   TabGroup,
   TabPanel,
   TabPanels,
-  Button,
 } from "@tremor/react";
 import { MainForm } from "./main-form";
+import { HistoryTable } from "./history-table";
 
 export function App() {
   return (
@@ -39,9 +37,7 @@ export function App() {
           </TabPanel>
           <TabPanel>
             <div className="mt-6">
-              <Card>
-                <div className="h-96" />
-              </Card>
+              <HistoryTable />
             </div>
           </TabPanel>
         </TabPanels>
