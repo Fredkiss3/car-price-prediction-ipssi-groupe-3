@@ -19,5 +19,7 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('cars/', views.CarListView.as_view(), name="api_index"),
+    path('brands/', views.CarBrandListView.as_view()),
+    path('models/', views.CarModelListView.as_view()),
+    path('predict/', views.PredictionView.as_view()),
 ]

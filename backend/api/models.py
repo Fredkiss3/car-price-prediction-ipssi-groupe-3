@@ -27,13 +27,3 @@ class CarModel(models.Model):
             "name",
         ]
 
-
-class CarColors(models.Model):
-    """A Town"""
-    color = models.CharField(max_length=255, verbose_name="couleurs", unique=True)
-
-    def __str__(self):
-        return self.name.capitalize()
-
-    class Meta:
-        verbose_name = "couleur"
