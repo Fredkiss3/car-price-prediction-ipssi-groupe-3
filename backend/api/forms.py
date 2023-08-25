@@ -2,28 +2,24 @@ import django.forms as forms
 
 
 class WidgetForm(forms.Form):
-    GEARBOXES_CHOICES = (
-        ("1", "Automatique"),
-        ("2", "Manuelle"),
-    )
+    # GEARBOXES_CHOICES = (
+    #     ("0", "Automatique"),
+    #     ("1", "Manuelle"),
+    # )
+    #
+    # ORIGIN_CHOICES = (
+    #     ("0", "France"),
+    #     ("1", "Importé"),
+    # )
 
-    ORIGIN_CHOICES = (
-        ("1", "France"),
-        ("2", "Importé"),
-    )
-
-    brand_id = forms.IntegerField(required=True, )
-    model_id = forms.IntegerField(required=True, )
     ratedHorsePower = forms.IntegerField(required=True, )
     powerDIN = forms.IntegerField(required=True, )
     consumption = forms.FloatField(required=True, )
     mileage = forms.IntegerField(min_value=1, initial=1, required=False)
     year = forms.IntegerField(min_value=1966, initial=1966, required=False)
-    gearbox = forms.ChoiceField(
+    gearbox = forms.IntegerField(
         required=True,
-        choices=GEARBOXES_CHOICES,
     )
-    origin = forms.ChoiceField(
+    origin = forms.IntegerField(
         required=True,
-        choices=ORIGIN_CHOICES,
     )

@@ -8,6 +8,8 @@ from api.forms import WidgetForm
 from api.models import CarBrand, CarModel
 from django.db.models import Q, Min
 from rest_framework import status
+import joblib
+
 
 from api.serializers import CarBrandSerializer, CarModelSerializer
 
@@ -55,9 +57,18 @@ class PredictionView(APIView):
     def post(self, request: Request):
         form = WidgetForm(request.data)
         if form.is_valid():
-            # TODO : Call API
+            data = form.data
+            model = joblib.load('./models/model_ia2.joblib')
+            result = model.predict([
+                [data["origin"],
+                data["year"],
+                data["gearbox"],
+                data["ratedHorsePower"],
+                data["powerDIN"],
+                data["consumption"]]
+            ])
             return Response({"data": {
-                "prediction": 15_000
+                "prediction": result
             }})
         else:
             return Response(

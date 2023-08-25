@@ -27,7 +27,7 @@ export function App() {
       <TabGroup className="mt-6">
         <TabList>
           <Tab>Estimateur</Tab>
-          <Tab>Historique</Tab>
+          {/* <Tab>Historique</Tab> */}
         </TabList>
         <TabPanels>
           <TabPanel>
@@ -35,11 +35,11 @@ export function App() {
               <MainForm />
             </div>
           </TabPanel>
-          <TabPanel>
+          {/* <TabPanel>
             <div className="mt-6">
               <HistoryTable />
             </div>
-          </TabPanel>
+          </TabPanel> */}
         </TabPanels>
       </TabGroup>
     </main>
