@@ -19,7 +19,5 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('brands/', views.CarBrandListView.as_view()),
-    path('models/', views.CarModelListView.as_view()),
     path('predict/', views.PredictionView.as_view()),
 ]
