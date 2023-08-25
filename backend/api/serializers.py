@@ -7,6 +7,7 @@ class CarBrandSerializer(serializers.ModelSerializer):
         model = CarBrand
         fields = (
             'name',
+            'id',
         )
 
 
@@ -17,7 +18,8 @@ class CarModelSerializer(serializers.ModelSerializer):
         model = CarModel
         fields = (
             'name',
-            'brand'
+            'brand',
+            'id',
         )
 
 

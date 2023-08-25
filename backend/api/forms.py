@@ -12,11 +12,11 @@ class WidgetForm(forms.Form):
         ("2", "Importé"),
     )
 
-    brand = forms.CharField(required=True, )
-    model = forms.CharField(required=True, )
+    brand_id = forms.IntegerField(required=True, )
+    model_id = forms.IntegerField(required=True, )
     ratedHorsePower = forms.IntegerField(required=True, )
     powerDIN = forms.IntegerField(required=True, )
-    consumption = forms.IntegerField(required=True, )
+    consumption = forms.FloatField(required=True, )
     mileage = forms.IntegerField(min_value=1, initial=1, required=False)
     year = forms.IntegerField(min_value=1966, initial=1966, required=False)
     gearbox = forms.ChoiceField(

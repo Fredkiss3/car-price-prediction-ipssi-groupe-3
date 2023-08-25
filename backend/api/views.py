@@ -38,7 +38,7 @@ class CarModelListView(APIView):
                     "error": "brand_id query params should be a valid number"
                 }, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
-        filter = Q(name__icontains=name_filter)
+        filter = Q(name__istartswith=name_filter)
         if brand_id is not None:
             filter = filter & Q(brand_id=int(brand_id))
 
@@ -46,7 +46,7 @@ class CarModelListView(APIView):
 
         return Response({
             "data": {
-                "brands": models.data
+                "models": models.data
             }
         })
 
@@ -56,7 +56,9 @@ class PredictionView(APIView):
         form = WidgetForm(request.data)
         if form.is_valid():
             # TODO : Call API
-            return Response({"data": 15_000})
+            return Response({"data": {
+                "prediction": 15_000
+            }})
         else:
             return Response(
                 {
